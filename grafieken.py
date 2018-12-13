@@ -25,6 +25,8 @@ def data_device(device):
     global usage, on
     usage = Gebruikersscherm.usage(device)
     on = Gebruikersscherm.plot_day_output(device)
+    if on is None:
+        messagebox.showinfo("info", "Usage is being calculated")
     for i in range(len(on)):
         on[i] = on[i]*usage
     return on

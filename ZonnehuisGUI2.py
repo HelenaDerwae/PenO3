@@ -793,7 +793,7 @@ def livingroom_window():
 
     i = 0
     j = 0
-    for device in Gebruikersscherm.machines_room("living_room"):
+    for device in Gebruikersscherm.machines_room("living room"):
         if device == "TV":
             device_name = "TV"
             device = tv
@@ -863,9 +863,8 @@ def bathroom_window():
         if i == 4 and j == 1:
             messagebox.showwarning("warning", "You have reached the maximum number of devices for this room")
 
-    plus_button = Button(bathroom_home, text="+", command= lambda: get_device_name(bathroom_home, 0, 0, "bathroom"), width=20, height=5)
-
-    plus_button.grid(row=0)
+    plus_button = Button(bathroom_home, text="+", command=lambda: get_device_name(bathroom_home, i, j, "bathroom"), width=20, height=5)
+    plus_button.grid(row=i, column=j)
 
     blank_canvas = Canvas(bathroom_home, width=500, height=500, highlightthickness=0)
     blank_canvas.place(x=325, y=5)
@@ -1141,7 +1140,7 @@ def home():
     minus_text= minus_canvas.create_text(35,35, fill="white", font=('Courier, 40'), text= "-")
     minus_canvas.bind("<Button-1>", temp_minus)
 
-    lighting_button = Button(home_root, text="lighting", command=lighting, width=20, height=3)
+    lighting_button = Button(home_root, text="Lighting", command=lighting, width=20, height=3)
     lighting_button.config(bg="white")
     lighting_button.place(x=50, y=440)
 
